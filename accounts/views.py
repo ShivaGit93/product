@@ -19,11 +19,23 @@ def signup(request):
 
 
 def login(request):
-    return render(request, 'accounts/login.html')
+    if request.method =='POST':
+        user = auth.authenticate(username=request.POST['username'],password=request.POST['password'])
+        if user is not None:
+            auth.login(request,user)
+            return redirect('home')
+        else:
+            return render (request,'accounts/login.html',{'error':'useranme or password incorrect'})
+
+    else:
+         return render(request, 'accounts/login.html')
 
 
 def logout(request):
-    return render(request, 'accounts/logout.html')
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('home')
+
 
 
 

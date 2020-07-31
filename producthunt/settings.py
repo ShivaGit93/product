@@ -25,7 +25,7 @@ SECRET_KEY = '0m8g60ph63j_!-*0mg$&1_dx+k5^103#-*0a95$zhvl$j&ol^='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['word193.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'producthunt.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'producthuntdb',
         'USER':'postgres',
         'PASSWORD':'abcd@1234',

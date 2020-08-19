@@ -56,6 +56,11 @@
                   </div>
                   <div class="modal-body">
 
+                   {% if error %}
+                   {{ error }}
+                   <br />
+                   <br />
+                   {% endif %}
                    <form method="POST" action="{% url 'login' %}" >
                    {% csrf_token %}
                     Username:

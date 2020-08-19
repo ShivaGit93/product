@@ -7,9 +7,10 @@ def home(request):
     products= Product.objects
     return render(request, 'products/home.html', {'products':products})
 
+
 @login_required     #if user is not loggedin it will send to login page
 def create(request):
-    if request.method =='POST':
+    if request.method=='POST':
         if request.POST['titles'] and request.POST['body'] and request.POST['url'] and request.FILES['icon'] and request.FILES['image']:
             product = Product()
             product.titles=request.POST['titles']

@@ -17,7 +17,6 @@ def signup(request):
     else:
         return render(request,'accounts/signup.html')
 
-
 def login(request):
     if request.method =='POST':
         user = auth.authenticate(username=request.POST['username'],password=request.POST['password'])
@@ -25,10 +24,11 @@ def login(request):
             auth.login(request,user)
             return redirect('home')
         else:
-            return render (request,'accounts/login.html',{'error':'useranme or password incorrect'})
+            return render (request,'accounts/display.html',{'error':'Username or Password incorrect.Try Login again.'})
 
     else:
-         return render(request, 'accounts/login.html')
+         return render(request, 'accounts/base.html')
+
 
 
 def logout(request):

@@ -39,15 +39,6 @@ def detail(request, product_id):
 def upvote(request, product_id):
     if request.method == 'POST':
         product = get_object_or_404(Product, pk=product_id)
-        # try:
-        #     product.votes_total = product.product.get(pk=request.POST['product'])
-        # except (KeyError, product.DoesNotExist):
-        #     # Redisplay the question voting form.
-        #     return render(request, 'products/ detail.html', {
-        #
-        #     'error_message': "You have voted once.",
-        #     })
-
         product.votes_total += 1
         product.save()
         return redirect('/products/' + str(product.id))
